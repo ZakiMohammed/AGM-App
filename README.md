@@ -38,7 +38,7 @@ imports: [
     BrowserModule,
     AppRoutingModule, 
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCRvhg2ugM_rAjfM-_orPVvSPOrBLTCOI8'
+      apiKey: ''
     })   
   ]
 `
