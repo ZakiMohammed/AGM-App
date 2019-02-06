@@ -1,10 +1,9 @@
 <!-- this creates a google map on the page with the given lat/lng from -->
 <!-- the component as the initial center of the map: -->
 <agm-map 
-  [zoom]="zoom" 
-  [fitBounds]="true"
-  [fullscreenControl]="true"
-  [fullscreenControlOptions]="controlOpt">
+  [maxZoom]="15"
+  [minZoom]="5"
+  [fitBounds]="true">
 
   <agm-marker 
     *ngFor="let marker of markers" 
@@ -12,12 +11,12 @@
     [longitude]="marker.lng" 
     [agmFitBounds]="true"
     [iconUrl]="{
-      url: './assets/images/vehicle.png',
-      scaledSize: {
-          width: 30,
-          height: 30
-      }
-  }"
+        url: './assets/images/vehicle.png',
+        scaledSize: {
+            width: 30,
+            height: 30
+        }
+    }"
     (markerClick)="clickMarker(infowindow)">
 
     <agm-info-window 
@@ -26,7 +25,14 @@
       <h4>Hello World</h4>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </agm-info-window>
-
   </agm-marker>
+
+  <agm-polyline [strokeColor]="'#2196f3'">
+    <agm-polyline-point 
+      *ngFor="let polyline of polylines" 
+      [latitude]="polyline.lat" 
+      [longitude]="polyline.lng">
+    </agm-polyline-point>
+  </agm-polyline>
 
 </agm-map>
